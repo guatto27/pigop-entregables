@@ -18,7 +18,7 @@ button{font:inherit;padding:5px 10px;border:1px solid #999;background:#fafafa;bo
 .sub-act{min-width:120px;color:#333} .sub-act:empty:before{content:'Escribe subactividad';color:#bbb} .sub-act:focus{outline:2px solid #4a7dff;background:#f3f6ff}
 .file{min-width:170px;font-size:13px} .file a{color:#1a56c4;word-break:break-all} .file .x{border:none;background:none;color:#b3261e;padding:0 4px;font-weight:700} .file .all{display:block;margin-top:4px;font-size:12px;padding:2px 6px} .file .up{font-size:12px;padding:3px 8px}
 .val{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;cursor:pointer} .val span:before{content:'Sin validar';color:#b3261e} .valc:checked+span:before{content:'Validado';color:#0a7a2f;font-weight:600}
-.aw{display:flex;gap:6px;align-items:flex-start} .tg{border:none;background:none;padding:0 4px;font-size:15px;line-height:1.2;cursor:pointer;color:#333} .cnt{font-size:11px;color:#777;margin-top:2px}
+.aw{display:flex;gap:6px;align-items:flex-start} .tg{border:none;background:none;padding:0 4px;font-size:15px;line-height:1.2;cursor:pointer;color:#333} .cnt{font-size:11px;margin-top:4px} .cnt:not(:empty){display:inline-block;background:#e3edff;color:#1a56c4;font-weight:600;border:1px solid #b9cdf5;border-radius:10px;padding:1px 8px} .cnt.full{background:#e3f4e6;color:#0a7a2f;border-color:#a9d8b2}
 tr.sub td{background:#fafafa;font-size:13px} .snc{padding-left:30px} .sw{display:flex;gap:8px;align-items:center} .sw .sn{flex:1;min-height:18px} .sw input{width:16px;height:16px;flex:none} .sx{border:none;background:none;color:#b3261e;font-weight:700;padding:0 4px} td.na{background:#f0f0f0!important} .sn:empty:before{content:'Escribe la subactividad';color:#bbb} .er:empty:before{content:'Responsable';color:#bbb}
 .sn:focus,.er:focus{outline:2px solid #4a7dff;background:#f3f6ff} .addr td{background:#fafafa;padding:4px 8px 4px 30px} .addr td:first-child{padding:0} .add{font-size:12px;padding:2px 8px}
 @media print{button{display:none}}
@@ -68,7 +68,7 @@ function render(a){const row=document.querySelector('tr[data-act="'+a+'"]');cons
   ad.querySelector('button').onclick=()=>{const id='sub'+Date.now();s['subs_'+a]=[...list,id];save();render(a);const c=document.querySelector('[data-k="'+id+'_n"]');c&&c.focus()};after.after(ad)}
  fixSpans();paint()}
 const paint0=paint;paint=function(){paint0();document.querySelectorAll('.subc').forEach(c=>{const e=document.querySelector('[data-for="'+c.dataset.k+'"]');if(e){e.textContent=c.checked?'Realizado':'Pendiente';e.className='c estado '+(c.checked?'done':'pend')}});
- document.querySelectorAll('.cnt').forEach(el=>{const l=s['subs_'+el.dataset.a]||[];const d=l.filter(id=>s[id+'_c']).length;el.textContent=l.length?(d+' de '+l.length+' subactividades realizadas'):''})};
+ document.querySelectorAll('.cnt').forEach(el=>{const l=s['subs_'+el.dataset.a]||[];const d=l.filter(id=>s[id+'_c']).length;el.textContent=l.length?(d+' de '+l.length+' subactividades realizadas'):'';el.classList.toggle('full',l.length>0&&d===l.length)})};
 let db;const req=indexedDB.open('pigop-entregables-archivos',1);req.onupgradeneeded=()=>req.result.createObjectStore('f');
 const st=m=>db.transaction('f',m).objectStore('f');
 const put=(k,v)=>new Promise(r=>{const q=st('readwrite').put(v,k);q.onsuccess=r});
