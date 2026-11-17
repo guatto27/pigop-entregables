@@ -19,8 +19,8 @@ button{font:inherit;padding:5px 10px;border:1px solid #999;background:#fafafa;bo
 .file{min-width:170px;font-size:13px} .file a{color:#1a56c4;word-break:break-all} .file .x{border:none;background:none;color:#b3261e;padding:0 4px;font-weight:700} .file .all{display:block;margin-top:4px;font-size:12px;padding:2px 6px} .file .up{font-size:12px;padding:3px 8px}
 .val{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;cursor:pointer} .val span:before{content:'Sin validar';color:#b3261e} .valc:checked+span:before{content:'Validado';color:#0a7a2f;font-weight:600}
 .aw{display:flex;gap:6px;align-items:flex-start} .tg{border:none;background:none;padding:0 4px;font-size:15px;line-height:1.2;cursor:pointer;color:#333} .cnt{font-size:11px;color:#777;margin-top:2px}
-tr.sub td{background:#fafafa;font-size:13px} .sn{padding-left:30px!important} .sn:empty:before{content:'Escribe la subactividad';color:#bbb} .er:empty:before{content:'Responsable';color:#bbb}
-.sn:focus,.er:focus{outline:2px solid #4a7dff;background:#f3f6ff} .addr td{background:#fafafa;padding:4px 8px 4px 30px} .add{font-size:12px;padding:2px 8px}
+tr.sub td{background:#fafafa;font-size:13px} .snc{padding-left:30px} .sw{display:flex;gap:8px;align-items:center} .sw .sn{flex:1;min-height:18px} .sw input{width:16px;height:16px;flex:none} .sx{border:none;background:none;color:#b3261e;font-weight:700;padding:0 4px} td.na{background:#f0f0f0!important} .sn:empty:before{content:'Escribe la subactividad';color:#bbb} .er:empty:before{content:'Responsable';color:#bbb}
+.sn:focus,.er:focus{outline:2px solid #4a7dff;background:#f3f6ff} .addr td{background:#fafafa;padding:4px 8px 4px 30px} .addr td:first-child{padding:0} .add{font-size:12px;padding:2px 8px}
 @media print{button{display:none}}
 </style></head><body>
 <h1>PIGOP · Entregables del contrato y actividades de la Fase 3</h1>
@@ -56,16 +56,15 @@ function bind(root){
 }
 function fixSpans(){document.querySelectorAll('tr[data-g] td.rs').forEach(td=>{td.rowSpan=document.querySelectorAll('tr[data-g="'+td.parentNode.dataset.g+'"]').length})}
 function subRow(a,g,id){const tr=document.createElement('tr');tr.className='sub';tr.dataset.g=g;tr.dataset.parent=a;
- tr.innerHTML='<td class="c"><input type="checkbox" class="subc" data-k="'+id+'_c" data-def="0"></td><td class="sn" contenteditable="true" data-k="'+id+'_n"></td><td class="er" contenteditable="true" data-k="'+id+'_r"></td><td class="fecha" contenteditable="true" data-k="'+id+'_f"></td><td class="file" data-k="'+id+'_a" data-e="x" data-multi="0"></td><td class="fecha env" contenteditable="true" data-k="'+id+'_e"></td><td class="c"><label class="val"><input type="checkbox" class="valc" data-k="'+id+'_v"><span></span></label></td><td class="c estado" data-for="'+id+'_c"></td>';
- const x=document.createElement('button');x.className='x';x.textContent='×';x.title='Eliminar subactividad';x.style.cssText='border:none;background:none;color:#b3261e;font-weight:700;float:right';
- x.onclick=()=>{if(confirm('¿Eliminar esta subactividad?')){s['subs_'+a]=(s['subs_'+a]||[]).filter(z=>z!==id);save();render(a)}};tr.children[0].appendChild(x);return tr}
+ tr.innerHTML='<td></td><td class="snc"><div class="sw"><input type="checkbox" class="subc" data-k="'+id+'_c" data-def="0"><div class="sn" contenteditable="true" data-k="'+id+'_n"></div><button class="x sx" title="Eliminar subactividad">×</button></div></td><td class="er" contenteditable="true" data-k="'+id+'_r"></td><td class="fecha" contenteditable="true" data-k="'+id+'_f"></td><td class="file" data-k="'+id+'_a" data-e="x" data-multi="0"></td><td class="na"></td><td class="na"></td><td class="c estado" data-for="'+id+'_c"></td>';
+ tr.querySelector('.sx').onclick=()=>{if(confirm('¿Eliminar esta subactividad?')){s['subs_'+a]=(s['subs_'+a]||[]).filter(z=>z!==id);save();render(a)}};return tr}
 function render(a){const row=document.querySelector('tr[data-act="'+a+'"]');const g=row.dataset.g;
  document.querySelectorAll('tr[data-parent="'+a+'"]').forEach(r=>r.remove());
  const list=s['subs_'+a]||[];const open=!!s['open_'+a];
  document.querySelector('.tg[data-a="'+a+'"]').textContent=open?'▾':'▸';
  const done=list.filter(id=>s[id+'_c']).length;document.querySelector('.cnt[data-a="'+a+'"]').textContent=list.length?(done+' de '+list.length+' subactividades realizadas'):'';
  if(open){let after=row;for(const id of list){const tr=subRow(a,g,id);after.after(tr);bind(tr);after=tr}
-  const ad=document.createElement('tr');ad.className='addr';ad.dataset.g=g;ad.dataset.parent=a;ad.innerHTML='<td colspan="8"><button class="add">+ Agregar subactividad</button></td>';
+  const ad=document.createElement('tr');ad.className='addr';ad.dataset.g=g;ad.dataset.parent=a;ad.innerHTML='<td></td><td colspan="7" style="padding-left:30px"><button class="add">+ Agregar subactividad</button></td>';
   ad.querySelector('button').onclick=()=>{const id='sub'+Date.now();s['subs_'+a]=[...list,id];save();render(a);const c=document.querySelector('[data-k="'+id+'_n"]');c&&c.focus()};after.after(ad)}
  fixSpans();paint()}
 const paint0=paint;paint=function(){paint0();document.querySelectorAll('.subc').forEach(c=>{const e=document.querySelector('[data-for="'+c.dataset.k+'"]');if(e){e.textContent=c.checked?'Realizado':'Pendiente';e.className='c estado '+(c.checked?'done':'pend')}});
