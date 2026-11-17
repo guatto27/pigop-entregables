@@ -28,12 +28,12 @@ tr.sub td{background:#fafafa;font-size:13px} .snc{padding-left:30px} .sw{display
 .dep .tip:before{content:'';position:absolute;top:-6px;right:12px;border:6px solid transparent;border-top:0;border-bottom-color:#222}
 .dep:hover .tip{display:block} .bloq{color:#9a5b00;font-weight:600}
 #dlg{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;z-index:20} #dlg.show{display:flex}
-#dlg .box{background:#fff;border-radius:10px;padding:18px;width:460px;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.3)} #dlg h3{margin:0 0 4px;font-size:16px} #dlg .t{color:#555;font-size:12px;margin-bottom:10px}
-#dlg select,#dlg textarea{width:100%;box-sizing:border-box;font:inherit;padding:6px;margin:4px 0 10px;border:1px solid #aaa;border-radius:6px} #dlg textarea{height:80px} #dlg .bt{display:flex;gap:8px;justify-content:flex-end}
+#dlg .box{background:#fff;border-radius:10px;padding:18px;width:500px;max-height:85vh;overflow:auto;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.3)} #dlg h3{margin:0 0 4px;font-size:16px} #dlg .t{color:#555;font-size:12px;margin-bottom:10px}
+#dlg select,#dlg textarea{width:100%;box-sizing:border-box;font:inherit;padding:6px;margin:4px 0 10px;border:1px solid #aaa;border-radius:6px} #dlg textarea{height:56px} #dlg .bt{display:flex;gap:8px;justify-content:flex-end}
 @media print{button{display:none}}
 </style></head><body>
 <h1>PIGOP · Entregables del contrato y actividades de la Fase 3</h1>
-<div class="sub">Fase 3. Alineación normativa e implementación · Da clic en la flecha ▸ de cada actividad para ver o agregar sus subactividades. Da clic en las casillas para marcar lo entregado y en «Fecha límite» o «Fecha de envío» para escribir; marca «Validado» cuando se valide el archivo de cada actividad. Con «Cargar archivos» adjuntas uno o varios archivos a cada actividad o subactividad, y si un solo archivo cubre varias actividades, usa «Usar en todo el entregable». Con el ícono 🔗 de cada actividad indicas de qué otra actividad depende y agregas un comentario; pasa el puntero sobre la burbuja para verlo. Todo se guarda en este navegador.</div>
+<div class="sub">Fase 3. Alineación normativa e implementación · Da clic en la flecha ▸ de cada actividad para ver o agregar sus subactividades. Da clic en las casillas para marcar lo entregado y en «Fecha límite» o «Fecha de envío» para escribir; marca «Validado» cuando se valide el archivo de cada actividad. Con «Cargar archivos» adjuntas uno o varios archivos a cada actividad o subactividad, y si un solo archivo cubre varias actividades, usa «Usar en todo el entregable». Con el ícono 🔗 de cada actividad indicas de qué otras actividades depende y agregas comentarios; pasa el puntero sobre la burbuja para verlo. Todo se guarda en este navegador.</div>
 <div class="bar"><span id="prog"></span><button onclick="window.print()">Imprimir / PDF</button><button onclick="if(confirm('¿Regresar a los estados iniciales? También se quitan los archivos cargados.')){localStorage.removeItem(K);indexedDB.deleteDatabase('pigop-entregables-archivos');location.reload()}">Restablecer</button></div>
 <table><thead><tr><th>Avance del entregable</th><th>Entregable</th><th></th><th>Actividades</th><th>Responsable</th><th>Fecha límite</th><th>Archivo entregable</th><th>Fecha de envío</th><th>Validado</th><th>Estado</th></tr></thead><tbody>
 <tr data-g="0" data-act="a0_0"><td rowspan="5" class="c gtop rs"><div class="pb" data-e="0"><div class="pbf"></div></div><div class="pbt" data-e="0"></div></td><td rowspan="5" class="ent-name gtop rs">1. Recomendaciones a normativa y manuales.</td><td class="c gtop"><input type="checkbox" class="act" data-k="a0_0" data-e="0" data-def="1"></td><td class="actn gtop"><div class="aw"><button class="tg" data-a="a0_0" title="Ver subactividades">▸</button><div class="an" style="flex:1"><span class="at">Verificación de cumplimiento a la normatividad vigente.</span><div class="cnt" data-a="a0_0"></div></div><div class="dw"><div class="dep" data-a="a0_0"></div><button class="db" data-a="a0_0" title="Agregar dependencia o comentario">🔗</button></div></div></td><td class="gtop">René</td><td class="fecha gtop" contenteditable="true" data-k="f0_0" data-def=""></td><td class="file gtop" data-k="a0_0" data-e="0" data-multi="1"></td><td class="fecha env gtop" contenteditable="true" data-k="env0_0" data-def=""></td><td class="c gtop"><label class="val"><input type="checkbox" class="valc" data-k="val0_0"><span></span></label></td><td class="c estado gtop" data-for="a0_0"></td></tr>
@@ -50,10 +50,9 @@ tr.sub td{background:#fafafa;font-size:13px} .snc{padding-left:30px} .sw{display
 <tr data-g="4" data-act="a4_1"><td class="c"><input type="checkbox" class="act" data-k="a4_1" data-e="4" data-def="0"></td><td class="actn"><div class="aw"><button class="tg" data-a="a4_1" title="Ver subactividades">▸</button><div class="an" style="flex:1"><span class="at">Migración controlada a ambiente productivo.</span><div class="cnt" data-a="a4_1"></div></div><div class="dw"><div class="dep" data-a="a4_1"></div><button class="db" data-a="a4_1" title="Agregar dependencia o comentario">🔗</button></div></div></td><td class="">Luis Alberto Sánchez</td><td class="fecha" contenteditable="true" data-k="f4_1" data-def=""></td><td class="file" data-k="a4_1" data-e="4" data-multi="1"></td><td class="fecha env" contenteditable="true" data-k="env4_1" data-def=""></td><td class="c"><label class="val"><input type="checkbox" class="valc" data-k="val4_1"><span></span></label></td><td class="c estado" data-for="a4_1"></td></tr>
 <tr data-g="5" data-act="a5_0"><td rowspan="1" class="c gtop rs"><div class="pb" data-e="5"><div class="pbf"></div></div><div class="pbt" data-e="5"></div></td><td rowspan="1" class="ent-name gtop rs">6. Marco de consultoría evolutiva para desarrollos adicionales como extensión del esquema SaaS.</td><td class="c gtop"><input type="checkbox" class="act" data-k="a5_0" data-e="5" data-def="0"></td><td class="actn gtop"><div class="aw"><button class="tg" data-a="a5_0" title="Ver subactividades">▸</button><div class="an" style="flex:1"><span class="at">Elaboración del marco de consultoría evolutiva.</span><div class="cnt" data-a="a5_0"></div></div><div class="dw"><div class="dep" data-a="a5_0"></div><button class="db" data-a="a5_0" title="Agregar dependencia o comentario">🔗</button></div></div></td><td class="gtop">Marco Antonio Flores</td><td class="fecha gtop" contenteditable="true" data-k="f5_0" data-def=""></td><td class="file gtop" data-k="a5_0" data-e="5" data-multi="0"></td><td class="fecha env gtop" contenteditable="true" data-k="env5_0" data-def=""></td><td class="c gtop"><label class="val"><input type="checkbox" class="valc" data-k="val5_0"><span></span></label></td><td class="c estado gtop" data-for="a5_0"></td></tr>
 </tbody></table>
-<div id="dlg"><div class="box"><h3>Dependencia o comentario</h3><div class="t" id="dlgAct"></div>
-<label>Esta actividad no se puede realizar hasta terminar:</label><select id="dlgSel"></select>
-<label>Comentario (aparece en la burbuja):</label><textarea id="dlgNote" placeholder="Ej. Se necesitan los manuales aprobados antes de capacitar."></textarea>
-<div class="bt"><button id="dlgDel">Quitar</button><button id="dlgCancel">Cancelar</button><button id="dlgOk" style="background:#111;color:#fff;border-color:#111">Guardar</button></div></div></div>
+<div id="dlg"><div class="box"><h3>Dependencias y comentarios</h3><div class="t" id="dlgAct"></div>
+<div id="dlgList"></div><button id="dlgAdd" class="add" style="margin-bottom:12px">+ Agregar otra dependencia o comentario</button>
+<div class="bt"><button id="dlgDel">Quitar todo</button><button id="dlgCancel">Cancelar</button><button id="dlgOk" style="background:#111;color:#fff;border-color:#111">Guardar</button></div></div></div>
 <script>
 const K='pigop-fase3-checklist-v1';let s=JSON.parse(localStorage.getItem(K)||'{}');
 const save=()=>localStorage.setItem(K,JSON.stringify(s));
@@ -104,20 +103,28 @@ req.onsuccess=async()=>{db=req.result;
 document.querySelectorAll('tr[data-act]').forEach(r=>render(r.dataset.act));
 const nameOf=a=>{const r=document.querySelector('tr[data-act="'+a+'"] .at');return r?r.textContent:''};
 const esc=t=>t.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-function paintDeps(){document.querySelectorAll('.dep').forEach(el=>{const a=el.dataset.a;const d=s['dep_'+a];const btn=document.querySelector('.db[data-a="'+a+'"]');el.className='dep';el.innerHTML='';btn.classList.toggle('on',!!d);
- const est=document.querySelector('[data-for="'+a+'"]');const me=document.querySelector('.act[data-k="'+a+'"]');
- if(!d)return;let txt,tip='';
- if(d.on){const pre=document.querySelector('.act[data-k="'+d.on+'"]');const ok=pre&&pre.checked;el.classList.add(ok?'ok':'blk');txt=ok?'✔':'⛔';tip='<b>'+(ok?'Dependencia cumplida':'Depende de otra actividad')+'</b><br><b>Actividad:</b> '+esc(nameOf(d.on))+(ok?' (ya realizada)':' (pendiente)');
-  if(!ok&&!me.checked){est.textContent='Bloqueada';est.className='c estado bloq'+(est.classList.contains('gtop')?' gtop':'')}}
- else{el.classList.add('blk');txt='💬';tip='<b>Comentario</b>'}
- if(d.note)tip+='<br><br>'+esc(d.note);el.innerHTML=txt+'<span class="tip">'+tip+'</span>'})}
+const depsOf=a=>{const d=s['dep_'+a];return !d?[]:(Array.isArray(d)?d:[d])};
+const isDone=k=>{const c=document.querySelector('.act[data-k="'+k+'"]');return c&&c.checked};
+function paintDeps(){document.querySelectorAll('.dep').forEach(el=>{const a=el.dataset.a;const L=depsOf(a);const btn=document.querySelector('.db[data-a="'+a+'"]');el.className='dep';el.innerHTML='';btn.classList.toggle('on',L.length>0);
+ if(!L.length)return;const est=document.querySelector('[data-for="'+a+'"]');
+ const deps=L.filter(x=>x.on),pend=deps.filter(x=>!isDone(x.on));let ic;
+ if(pend.length){ic='⛔';el.classList.add('blk');if(!isDone(a)){est.textContent='Bloqueada';est.className='c estado bloq'+(est.classList.contains('gtop')?' gtop':'')}}
+ else if(deps.length){ic='✔';el.classList.add('ok')}else{ic='💬';el.classList.add('blk')}
+ const tip=L.map(x=>x.on?('<b>'+(isDone(x.on)?'✔ Cumplida':'⛔ Depende de')+':</b> '+esc(nameOf(x.on))+(x.note?'<br>'+esc(x.note):'')):('<b>💬 Comentario:</b> '+esc(x.note))).join('<hr style="border:0;border-top:1px solid #555;margin:6px 0">');
+ el.innerHTML=ic+(L.length>1?'<sup style="font-size:9px;margin-left:1px">'+L.length+'</sup>':'')+'<span class="tip">'+tip+'</span>'})}
 const paint1=paint;paint=function(){paint1();paintDeps()};
-let cur=null;const dlg=document.getElementById('dlg'),sel=document.getElementById('dlgSel'),note=document.getElementById('dlgNote');
-document.querySelectorAll('.db').forEach(b=>b.onclick=()=>{cur=b.dataset.a;const d=s['dep_'+cur]||{};document.getElementById('dlgAct').textContent=nameOf(cur);
- sel.innerHTML='<option value="">Ninguna (solo comentario)</option>';document.querySelectorAll('tr[data-act]').forEach(r=>{const k=r.dataset.act;if(k===cur)return;const o=document.createElement('option');o.value=k;o.textContent=r.closest('tbody')&&nameOf(k);sel.appendChild(o)});
- sel.value=d.on||'';note.value=d.note||'';dlg.classList.add('show')});
+let cur=null;const dlg=document.getElementById('dlg'),lst=document.getElementById('dlgList');
+function entry(d){const w=document.createElement('div');w.className='ent';w.style.cssText='border:1px solid #ddd;border-radius:8px;padding:8px 10px;margin-bottom:8px;position:relative';
+ w.innerHTML='<button class="rm" title="Quitar" style="position:absolute;right:6px;top:4px;border:none;background:none;color:#b3261e;font-weight:700">×</button><label>Esta actividad no se puede realizar hasta terminar:</label><select></select><label>Comentario (aparece en la burbuja):</label><textarea placeholder="Ej. Se debe validar la funcionalidad de todos los módulos."></textarea>';
+ const sel=w.querySelector('select');sel.innerHTML='<option value="">Ninguna (solo comentario)</option>';
+ document.querySelectorAll('tr[data-act]').forEach(r=>{const k=r.dataset.act;if(k===cur)return;const o=document.createElement('option');o.value=k;o.textContent=nameOf(k);sel.appendChild(o)});
+ sel.value=d.on||'';w.querySelector('textarea').value=d.note||'';w.querySelector('.rm').onclick=()=>w.remove();lst.appendChild(w)}
+document.querySelectorAll('.db').forEach(b=>b.onclick=()=>{cur=b.dataset.a;document.getElementById('dlgAct').textContent=nameOf(cur);lst.innerHTML='';
+ const L=depsOf(cur);(L.length?L:[{}]).forEach(entry);dlg.classList.add('show')});
+document.getElementById('dlgAdd').onclick=()=>entry({});
 document.getElementById('dlgCancel').onclick=()=>dlg.classList.remove('show');
-document.getElementById('dlgDel').onclick=()=>{delete s['dep_'+cur];save();dlg.classList.remove('show');paint()};
-document.getElementById('dlgOk').onclick=()=>{if(!sel.value&&!note.value.trim())delete s['dep_'+cur];else s['dep_'+cur]={on:sel.value,note:note.value.trim()};save();dlg.classList.remove('show');paint()};
+document.getElementById('dlgDel').onclick=()=>{if(confirm('¿Quitar todas las dependencias y comentarios de esta actividad?')){delete s['dep_'+cur];save();dlg.classList.remove('show');paint()}};
+document.getElementById('dlgOk').onclick=()=>{const L=[...lst.querySelectorAll('.ent')].map(w=>({on:w.querySelector('select').value,note:w.querySelector('textarea').value.trim()})).filter(x=>x.on||x.note);
+ if(L.length)s['dep_'+cur]=L;else delete s['dep_'+cur];save();dlg.classList.remove('show');paint()};
 paint();
 </script></body></html>
